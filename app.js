@@ -24,83 +24,78 @@ const app = {
   isPlaying: false,
   isRandom: false,
   isRepeat: false,
-  config: JSON.parse(localStorage.getItem(PLAYER_STOGARE_KEY)) || {},
   songs: [
     {
       id: 1,
-      name: "Tiny love",
-      singer: " ❦ Thịnh Suy",
-      path: "./assets/music/song1.mp3",
-      img: "./assets/img/ThinhSuy.jpg",
+      name: "Your Smile",
+      singer: " ❦ Obito ft hnhngan",
+      path: "./asset/music/song5.mp3",
+      img: "./asset/img/hnhngan.jpg",
     },
     {
       id: 2,
       name: "Chìm Sâu",
       singer: " ❦ Tu Salmon",
-      path: "./assets/music/song2.mp3",
-      img: "./assets/img/TuSalmon.jpg",
+      path: "./asset/music/song2.mp3",
+      img: "./asset/img/TuSalmon.jpg",
     },
     {
       id: 3,
       name: "Tình yêu xanh lá",
       singer: " ❦ Thịnh Suy",
-      path: "./assets/music/song3.mp3",
-      img: "./assets/img/ThinhSuy.jpg",
+      path: "./asset/music/song3.mp3",
+      img: "./asset/img/ThinhSuy.jpg",
     },
     {
       id: 4,
       name: "Mascara",
       singer: " ❦ Chillies",
-      path: "./assets/music/song4.mp3",
-      img: "./assets/img/Chillies.jpg",
+      path: "./asset/music/song4.mp3",
+      img: "./asset/img/Chillies.jpg",
     },
     {
       id: 5,
-      name: "Your Smile",
-      singer: " ❦ Obito ft hnhngan",
-      path: "./assets/music/song5.mp3",
-      img: "./assets/img/hnhngan.jpg",
+      name: "Tiny love",
+      singer: " ❦ Thịnh Suy",
+      path: "./asset/music/song1.mp3",
+      img: "./asset/img/ThinhSuy.jpg",
     },
     {
       id: 6,
       name: "Mơ",
       singer: " ❦ Vũ Cát Tường",
-      path: "./assets/music/song6.mp3",
-      img: "./assets/img/VuCatTuong.jpg",
+      path: "./asset/music/song6.mp3",
+      img: "./asset/img/VuCatTuong.jpg",
     },
     {
       id: 7,
       name: "Xe Đạp",
       singer: " ❦ Charles",
-      path: "./assets/music/song7.mp3",
-      img: "./assets/img/Charles.jpg",
+      path: "./asset/music/song7.mp3",
+      img: "./asset/img/Charles.jpg",
     },
     {
       id: 8,
       name: "20 Năm Ở Thế Giới",
       singer: " ❦ Thịnh Suy",
-      path: "./assets/music/song8.mp3",
-      img: "./assets/img/ThinhSuy.jpg",
+      path: "./asset/music/song8.mp3",
+      img: "./asset/img/ThinhSuy.jpg",
     },
     {
       id: 9,
       name: "Có Hẹn Với Thanh Xuân",
       singer: " ❦ Monstar",
-      path: "./assets/music/song9.mp3",
-      img: "./assets/img/Monstar.jpg",
+      path: "./asset/music/song9.mp3",
+      img: "./asset/img/Monstar.jpg",
     },
     {
       id: 10,
       name: "Crush 2",
       singer: " ❦ W/n...",
-      path: "./assets/music/song10.mp3",
-      img: "./assets/img/Wn.jpg",
+      path: "./asset/music/song10.mp3",
+      img: "./asset/img/Wn.jpg",
     },
   ],
-  setConfig: function (key, value) {
-    this.config = value;
-    localStorage.setItem(PLAYER_STOGARE_KEY, JSON.stringify(this.config));
-  },
   render: function () {
     const htmls = this.songs.map((song, index) => {
       return `
@@ -175,7 +170,6 @@ const app = {
     //Khi bấm nút random
     randomBtn.onclick = function () {
       _this.isRandom = !_this.isRandom;
-      _this.setConfig("isRandom", _this.isRandom);
       randomBtn.classList.toggle("active", _this.isRandom); // toggle (  , boolean) => False thì xoá, True thì add
     };
 
@@ -183,7 +177,6 @@ const app = {
 
     repeatBtn.onclick = function () {
       _this.isRepeat = !_this.isRepeat;
-      _this.setConfig("isRepeat", _this.isRepeat);
       repeatBtn.classList.toggle("active", _this.isRepeat);
     };
 
@@ -285,9 +278,6 @@ const app = {
     }, 250);
   },
   start: function () {
-    //Gán cấu hình từ config vào ứng dụng
-    this.loadConfig();
-
     // Định nghĩa các thuộc tính cho Object
     this.defineProperties();
 
@@ -306,3 +296,5 @@ const app = {
   },
 };
 app.start();
+
+//
