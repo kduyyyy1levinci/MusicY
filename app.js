@@ -17,13 +17,16 @@ const repeatBtn = $(".btn-repeat");
 
 const playlist = $(".playlist");
 
-const PLAYER_STOGARE_KEY = "ABC_PLAYER";
-
+const menu = $(".playlist-icon");
+const dashboard = $(".dashboard");
+const theme = $("#theme");
+let index = 0;
 const app = {
   currentIndex: 0,
   isPlaying: false,
   isRandom: false,
   isRepeat: false,
+  isMenu: false,
   songs: [
     {
       id: 1,
@@ -215,30 +218,38 @@ const app = {
     };
 
     //  Lắng nghe hành vi vào playlists
-
-    playlist.onclick = function (e) {
+    (playlist.onclick = function (e) {
       // Xử lý khi click vào
       const songNode = e.target.closest(".song:not(.active)");
-      if (songNode || e.target.closest(".option")) {
-        if (songNode) {
-          _this.currentIndex = songNode.dataset.index;
-          _this.loadCurrentSong();
-          _this.hightlightSong();
-          audio.play();
-        }
-        if (e.target.closest(".option")) {
+      if (songNode) {
+        _this.currentIndex = songNode.dataset.index;
+        _this.loadCurrentSong();
+        _this.hightlightSong();
+        audio.play();
+        if (_this.isMenu) {
+          _this.isMenu = !_this.isMenu;
+          dashboard.classList.toggle("display-none");
+          theme.classList.toggle("display-none");
+          playlist.classList.toggle("display-block");
+          menu.classList.toggle("display-none", _this.isMenu);
+          menu.animate({ opacity: 1 });
+          playlist.style.width = "30vw";
         }
       }
-    };
+    }),
+      (menu.onclick = function () {
+        _this.isMenu = !_this.isMenu;
+        dashboard.classList.toggle("display-none");
+        theme.classList.toggle("display-none");
+        playlist.classList.toggle("display-block");
+        menu.classList.toggle("display-none", _this.isMenu);
+        playlist.style.width = "100vw";
+      });
   },
   loadCurrentSong: function () {
     heading.textContent = this.currentSong.name;
     cdThumb.style.backgroundImage = `url("${this.currentSong.img}")`;
     audio.src = this.currentSong.path;
-  },
-  loadConfig: function () {
-    this.isRandom = this.config.isRandom;
-    this.isRepeat = this.config.isRepeat;
   },
   nextSong: function () {
     this.currentIndex++;
@@ -289,10 +300,6 @@ const app = {
 
     // Render playlists
     this.render();
-
-    // Hiển trạng thái ban đầu của random và repeat
-    repeatBtn.classList.toggle("active", this.isRepeat);
-    randomBtn.classList.toggle("active", this.isRandom);
   },
 };
 app.start();

@@ -166,6 +166,7 @@ header h2 {
   width: 30%;
   height: 100vh;
   overflow-y: scroll;
+  animation: fadeOut 1.5s ease;
 }
 
 .song {
@@ -179,6 +180,7 @@ header h2 {
 
 .song:hover {
   background-color: var(--primary-color);
+  opacity: 0.8;
 }
 
 .song:hover .title,
@@ -246,8 +248,8 @@ header h2 {
   position: absolute;
   z-index: 99;
   top: 4px;
-  right: -54px;
-  width: 100px;
+  right: -0;
+  width: 42px;
   display: none;
 }
 .playlist-icon i {
@@ -260,8 +262,25 @@ header h2 {
 .playlist-icon:hover i {
   opacity: 1;
 }
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 800px) {
   .player {
     width: 100%;
     overflow: hidden;
@@ -270,14 +289,16 @@ header h2 {
   #theme {
     right: 10%;
     left: 10%;
+    transition: ease-in-out 1s;
   }
   .playlist {
     display: none;
     transition: ease-in-out 1s;
+    width: 100vw;
   }
 
   .dashboard {
-    width: 100%;
+    width: 100vw;
     transition: ease-in-out 1s;
   }
 
@@ -288,4 +309,12 @@ header h2 {
   .playlist-icon {
     display: block;
   }
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
 }
