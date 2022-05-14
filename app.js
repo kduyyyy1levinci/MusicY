@@ -32,7 +32,7 @@ const app = {
       id: 1,
       name: "Anh Biết",
       singer: " ❦ Xám x D.Blue",
-      path: "./aset/music/song11.mp3",
+      path: "./asset/music/song11.mp3",
       img: "./asset/img/Xam-1-scaled.jpg",
     },
     {
