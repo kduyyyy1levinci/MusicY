@@ -30,10 +30,10 @@ const app = {
   songs: [
     {
       id: 1,
-      name: "Your Smile",
-      singer: " ❦ Obito ft hnhngan",
-      path: "./asset/music/song5.mp3",
-      img: "./asset/img/hnhngan.jpg",
+      name: "Anh Biết",
+      singer: " ❦ Xám x D.Blue",
+      path: "./aset/music/song11.mp3",
+      img: "./asset/img/Xam-1-scaled.jpg",
     },
     {
       id: 2,
@@ -97,6 +97,13 @@ const app = {
       singer: " ❦ W/n...",
       path: "./asset/music/song10.mp3",
       img: "./asset/img/Wn.jpg",
+    },
+    {
+      id: 11,
+      name: "Your Smile",
+      singer: " ❦ Obito ft hnhngan",
+      path: "./asset/music/song5.mp3",
+      img: "./asset/img/hnhngan.jpg",
     },
   ],
   render: function () {
