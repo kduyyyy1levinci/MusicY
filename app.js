@@ -33,7 +33,7 @@ const app = {
       name: "Tại Vì Sao",
       singer: " ❦ MCK",
       path: "./asset/music/song13.mp3",
-      img: "./asset/img/MCK.jpg",
+      img: "./asset/img/MCk.jpg",
     },
     {
       id: 2,
