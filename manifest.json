@@ -6,8 +6,8 @@
     "background_color": "#042f64",
     "display": "fullScreen",
     "orientation": "portrait",
-    "scope": "/",
-    "start_url": "/",
+    "scope": "/MusicY",
+    "start_url": "MusicY",
     "icons": [
       {
         "src": "assets/icons/icon-72x72.png",

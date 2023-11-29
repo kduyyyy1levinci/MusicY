@@ -251,7 +251,7 @@ const app = {
     const cdThumbAnimate = cdThumb.animate(
       [
         {
-          transform: "rotate(360deg)",
+          // transform: "rotate(360deg)",
         },
       ],
       {
@@ -358,7 +358,7 @@ const app = {
   },
   loadCurrentSong: function () {
     heading.textContent = this.currentSong.name;
-    cdThumb.style.backgroundImage = `url("${this.currentSong.img}")`;
+    cdThumb.style.backgroundImage = `url("./assets/img/cat-g.gif")`;
     audio.src = this.currentSong.path;
   },
   nextSong: function () {
