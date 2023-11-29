@@ -1,6 +1,6 @@
 :root {
   --primary-color: #042f64;
-  --text-color: rgba(255, 255, 255, 0.6);
+  --text-color: #ffffff99;
   --bgc-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -101,6 +101,7 @@ header h2 {
 .cd {
   display: flex;
   margin: auto;
+  width: 14vw;
   min-width: 200px;
   margin-bottom: 48px;
 }
