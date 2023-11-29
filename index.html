@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MusicY</title>
-    <link rel="icon" href="./asset/img/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./asset/css/style.css">
-</head>
-<body>
-<video id="bg-video" poster="./asset/img/849790.gif" src="./asset/video/ezgif.com-gif-to-mp4-3.mp4" type="video/mp4">
-</video>
 
-<div class="player">
-  <!-- Theme -->
-  <div id="theme">
-    <span class="ani-text"></span>
-  </div>
-  <div class="flex">
-      <!-- Dashboard -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M u s i c y</title>
+  <link rel="icon" href="./asset/img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./asset/css/style.css">
+</head>
+
+<body>
+  <video id="bg-video" poster="./asset/img/849790.gif" src="./asset/video/ezgif.com-gif-to-mp4-3.mp4" type="video/mp4">
+  </video>
+
+  <div class="player">
+    <div id="theme">
+      <span class="ani-text"></span>
+    </div>
+    <div class="flex flex-col h-full">
       <div class="dashboard">
-        <!-- Header -->
         <header>
           <h4>Now playing:</h4> <br>
           <h2>OH HO</h2>
         </header>
-    
-        <!-- CD -->
+
         <div class="cd">
-          <div class="cd-thumb" >
+          <div class="cd-thumb">
           </div>
         </div>
-    
-        <!-- Control -->
+
         <div class="control">
           <div class="btn btn-repeat">
             <i class="fas fa-redo"></i>
@@ -54,26 +53,24 @@
             <i class="fas fa-random"></i>
           </div>
         </div>
-    
-        <audio id="audio" autoplay="true"  src=""></audio>
+
+        <audio id="audio" autoplay="true" src=""></audio>
       </div>
-      <!-- Playlist -->
       <div class="playlist">
       </div>
-   </div>
+    </div>
   </div>
   <div class="playlist-icon">
-     <i class="fas fa-list-alt"></i>
+    <i class="fas fa-list-alt"></i>
   </div>
   <script src="app.js"></script>
   <script src="./asset/css/typed.js"></script>
   <script>
-    // import Typed from "typed.js";
     var options = {
       strings: [
         "a little rain",
         "",
-       "a little tired",
+        "a little tired",
         "",
         "and....",
         "",
@@ -86,7 +83,5 @@
     var typed = new Typed(".ani-text", options);
   </script>
 </body>
+
 </html>
-
-
-<!-- Design from: https://static.collectui.com/shots/3671744/musicloud-revolutionary-app-for-music-streaming-large -->

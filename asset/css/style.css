@@ -28,6 +28,14 @@ video {
   display: flex;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
+.h-full {
+  height: 100%;
+}
+
 .player {
   position: relative;
   height: 100vh;
@@ -59,9 +67,8 @@ video {
 
 .dashboard {
   width: 70%;
-  height: 100%;
-  border-bottom: 1px solid #ebebeb;
-  margin-top: 42vh;
+  margin-top: auto;
+  margin-bottom: 8px;
 }
 
 /* HEADER */
@@ -94,8 +101,8 @@ header h2 {
 .cd {
   display: flex;
   margin: auto;
-  width: 14vw;
   min-width: 200px;
+  margin-bottom: 48px;
 }
 
 .cd-thumb {
@@ -121,7 +128,13 @@ header h2 {
 .control .btn {
   color: #3a506d7d;
   padding: 18px;
-  font-size: 18px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.control .btn:hover {
+  opacity: 0.8;
+  color: var(--primary-color);
 }
 
 .control .btn.active {
@@ -289,21 +302,21 @@ header h2 {
   #theme {
     right: 10%;
     left: 10%;
-    transition: ease-in-out 1s;
+    transition: ease-in-out 0.3s;
   }
   .playlist {
     display: none;
-    transition: ease-in-out 1s;
+    transition: ease-in-out 0.3s;
     width: 100vw;
   }
 
   .dashboard {
     width: 100vw;
-    transition: ease-in-out 1s;
+    transition: ease-in-out 0.3s;
   }
 
   .cd {
-    width: 22vw;
+    width: 30vw;
   }
 
   .playlist-icon {
