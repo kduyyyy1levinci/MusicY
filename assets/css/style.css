@@ -1,5 +1,6 @@
 :root {
-  --primary-color: #042f64;
+  /* --primary-color: #042f64; */
+  --primary-color: #d74d1a;
   --text-color: #ffffff99;
   --bgc-color: rgba(255, 255, 255, 0.8);
 }
@@ -81,13 +82,15 @@ header h4 {
 }
 
 header h2 {
-  color: rgba(255, 255, 255, 0.9);
-  padding: 2px 4px;
+  /* color: rgba(255, 255, 255, 0.9); */
+  color: var(--primary-color);
+  background-color: var(--bgc-color);
+  padding: 8px 16px;
   border-radius: 12px;
   font-size: 28px;
   font-weight: 700;
   text-transform: uppercase;
-  margin: 8px 0;
+  margin: 16px 0;
   display: inline-block;
 }
 
@@ -119,7 +122,6 @@ header h2 {
   margin-top: 18px;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
-  margin-top: 96px;
 }
 
 .control .btn {
@@ -284,13 +286,11 @@ header h2 {
   cursor: pointer;
   display: inline-flex;
   font-family: "JetBrains Mono", monospace;
-  height: 48px;
+  padding: 12px;
   justify-content: center;
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
   position: relative;
   text-align: left;
   text-decoration: none;
@@ -300,9 +300,8 @@ header h2 {
   touch-action: manipulation;
   white-space: nowrap;
   will-change: box-shadow, transform;
-  font-size: 18px;
   display: block;
-  margin: 100px auto;
+  margin: 36px auto;
 }
 
 .btn-change:focus {

@@ -1,5 +1,6 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+const _$ = document.getElementsByClassName.bind(document)
 
 const heading = $("header h2 ");
 const cdThumb = $(".cd-thumb");
@@ -7,6 +8,7 @@ const audio = $("#audio");
 
 const playBtn = $(".btn-toggle-play");
 const player = $(".player");
+const changeBtn = $("#btn-change");
 
 const progress = $("#progress");
 
@@ -22,11 +24,10 @@ const dashboard = $(".dashboard");
 const theme = $("#theme");
 let index = 0;
 
-const changeBtn = $("#btn-change");
-
 const LOFI_SONGS = [
   {
     id: 1,
+    type: "lofi",
     name: "Tại Vì Sao",
     singer: " ❦ MCK",
     path: "./assets/music/song13.mp3",
@@ -34,6 +35,7 @@ const LOFI_SONGS = [
   },
   {
     id: 2,
+    type: "lofi",
     name: "Cuộc Gọi Đêm",
     singer: " ❦ Uyên Tố...",
     path: "./assets/music/song12.mp3",
@@ -41,6 +43,7 @@ const LOFI_SONGS = [
   },
   {
     id: 3,
+    type: "lofi",
     name: "Crush 2",
     singer: " ❦ W/n...",
     path: "./assets/music/song10.mp3",
@@ -48,6 +51,7 @@ const LOFI_SONGS = [
   },
   {
     id: 4,
+    type: "lofi",
     name: "Your Smile",
     singer: " ❦ Obito ft hnhngan",
     path: "./assets/music/song5.mp3",
@@ -55,6 +59,7 @@ const LOFI_SONGS = [
   },
   {
     id: 5,
+    type: "lofi",
     name: "Anh Biết",
     singer: " ❦ Xám x D.Blue",
     path: "./assets/music/song11.mp3",
@@ -62,6 +67,7 @@ const LOFI_SONGS = [
   },
   {
     id: 6,
+    type: "lofi",
     name: "Chìm Sâu",
     singer: " ❦ Tu Salmon",
     path: "./assets/music/song2.mp3",
@@ -69,6 +75,7 @@ const LOFI_SONGS = [
   },
   {
     id: 7,
+    type: "lofi",
     name: "Mascara",
     singer: " ❦ Chillies",
     path: "./assets/music/song4.mp3",
@@ -76,6 +83,7 @@ const LOFI_SONGS = [
   },
   {
     id: 8,
+    type: "lofi",
     name: "Xe Đạp",
     singer: " ❦ Charles",
     path: "./assets/music/song7.mp3",
@@ -83,6 +91,7 @@ const LOFI_SONGS = [
   },
   {
     id: 9,
+    type: "lofi",
     name: "20 Năm Ở Thế Giới",
     singer: " ❦ Thịnh Suy",
     path: "./assets/music/song8.mp3",
@@ -90,6 +99,7 @@ const LOFI_SONGS = [
   },
   {
     id: 10,
+    type: "lofi",
     name: "Có Hẹn Với Thanh Xuân",
     singer: " ❦ Monstar",
     path: "./assets/music/song9.mp3",
@@ -97,6 +107,7 @@ const LOFI_SONGS = [
   },
   {
     id: 11,
+    type: "lofi",
     name: "Tiny love",
     singer: " ❦ Thịnh Suy",
     path: "./assets/music/song1.mp3",
@@ -104,6 +115,7 @@ const LOFI_SONGS = [
   },
   {
     id: 12,
+    type: "lofi",
     name: "Mơ",
     singer: " ❦ Vũ Cát Tường",
     path: "./assets/music/song6.mp3",
@@ -112,6 +124,7 @@ const LOFI_SONGS = [
 
   {
     id: 13,
+    type: "lofi",
     name: "Tình yêu xanh lá",
     singer: " ❦ Thịnh Suy",
     path: "./assets/music/song3.mp3",
@@ -122,6 +135,7 @@ const LOFI_SONGS = [
 const SPEED_UP_SONGS = [
   {
     id: 14,
+    type: "speed_up",
     name: "Anh Đã Lạc Vào",
     singer: " ❦ Green",
     path: "./assets/music/anh-da-lac-vao-green.mp3",
@@ -129,6 +143,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 15,
+    type: "speed_up",
     name: "Chỉ Cần Có Em",
     singer: " ❦ Twenty, Darki",
     path: "./assets/music/chi-can-co-em-twenty-darki.mp3",
@@ -136,6 +151,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 16,
+    type: "speed_up",
     name: "Chỉ Cần Có Em",
     singer: " ❦ DMean",
     path: "./assets/music/iu-em-roi-tinh-sao-dmean.mp3",
@@ -143,6 +159,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 17,
+    type: "speed_up",
     name: "Matchanah",
     singer: " ❦ Híu x Bâu",
     path: "./assets/music/matchanah-hiu-bau.mp3",
@@ -150,6 +167,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 18,
+    type: "speed_up",
     name: "Miên Man",
     singer: " ❦ Minh Huy",
     path: "./assets/music/mien-man-minhhuy.mp3",
@@ -157,6 +175,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 19,
+    type: "speed_up",
     name: "Mộng Mơ",
     singer: " ❦ RedT",
     path: "./assets/music/mong-mo-redt.mp3",
@@ -164,6 +183,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 20,
+    type: "speed_up",
     name: "Nụ Cười Em Là Nắng",
     singer: " ❦ Green",
     path: "./assets/music/nu-cuoi-em-la-nang-green.mp3",
@@ -171,6 +191,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 21,
+    type: "speed_up",
     name: "Phỏng Lài Em",
     singer: "❦ Daduc, Dipper",
     path: "./assets/music/phong-lai-em-daduc-dipper.mp3",
@@ -178,6 +199,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 22,
+    type: "speed_up",
     name: "Say Đắm Trong Lần Đầu",
     singer: "❦ Winno",
     path: "./assets/music/say-dam-trong-lan-dau-winno.mp3",
@@ -185,6 +207,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 23,
+    type: "speed_up",
     name: "Tình Cờ Yêu Em",
     singer: "❦ Linh Thộn, Kuun Đức Nam",
     path: "./assets/music/tinh-co-yeu-em.mp3",
@@ -192,6 +215,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 24,
+    type: "speed_up",
     name: "Tình Đơn Phương",
     singer: "❦ Nguyên, Koo",
     path: "./assets/music/tinh-don-phuong-nguyen-koo.mp3",
@@ -199,6 +223,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 25,
+    type: "speed_up",
     name: "Từng Quen",
     singer: "❦ Wren EVans",
     path: "./assets/music/tung-quen-wren-evans.mp3",
@@ -206,6 +231,7 @@ const SPEED_UP_SONGS = [
   },
   {
     id: 26,
+    type: "speed_up",
     name: "Unfollow",
     singer: "❦ Freaky",
     path: "./assets/music/unfollow-freaky.mp3",
@@ -213,17 +239,17 @@ const SPEED_UP_SONGS = [
   },
 ]
 
-const randomNumber = Math.floor(Math.random() * 10);
+const randomNumber = (max) => Math.floor(Math.random() * max);
 
-let SONGS_RENDER = randomNumber % 2 === 0 ? SPEED_UP_SONGS : LOFI_SONGS;
+let SONGS_RENDER = randomNumber(10) % 2 === 0 ? SPEED_UP_SONGS : LOFI_SONGS;
 
 const app = {
-  currentIndex: 0,
   isPlaying: false,
   isRandom: false,
   isRepeat: false,
   isMenu: false,
   songs: SONGS_RENDER,
+  currentIndex: randomNumber(SONGS_RENDER.length),
   render: function () {
     const htmls = this.songs.map((song, index) => {
       return `
@@ -288,6 +314,7 @@ const app = {
 
     randomBtn.onclick = function () {
       _this.isRandom = !_this.isRandom;
+      randomBtn.classList.toggle("active", _this.isRandom);
     };
 
     repeatBtn.onclick = function () {
@@ -318,8 +345,14 @@ const app = {
     };
 
     changeBtn.onclick = function () {
-
-    }
+      const isTypeLofi = SONGS_RENDER?.[0]?.type === "lofi"
+      SONGS_RENDER = isTypeLofi ? SPEED_UP_SONGS : LOFI_SONGS;
+      changeBtn.textContent = isTypeLofi ? "LOFI MODE" : "SPEED UP MODE"
+      _this.currentIndex = randomNumber(SONGS_RENDER.length)
+      _this.songs = SONGS_RENDER;
+      _this.render();
+      _this.loadCurrentSong();
+    };
 
     audio.onended = function () {
       if (_this.isRepeat) {
@@ -336,15 +369,6 @@ const app = {
         _this.loadCurrentSong();
         _this.hightlightSong();
         audio.play();
-        if (_this.isMenu) {
-          _this.isMenu = !_this.isMenu;
-          dashboard.classList.toggle("display-none");
-          theme.classList.toggle("display-none");
-          playlist.classList.toggle("display-block");
-          menu.classList.toggle("display-none", _this.isMenu);
-          menu.animate({ opacity: 1 });
-          playlist.style.width = "30vw";
-        }
       }
       if (_this.isMenu) {
         _this.isMenu = !_this.isMenu;
@@ -358,6 +382,8 @@ const app = {
     }),
       (menu.onclick = function () {
         _this.isMenu = !_this.isMenu;
+        _this.hightlightSong();
+        _this.scrolltoActiveSong();
         dashboard.classList.toggle("display-none");
         theme.classList.toggle("display-none");
         playlist.classList.toggle("display-block");
@@ -366,6 +392,7 @@ const app = {
       });
   },
   loadCurrentSong: function () {
+    changeBtn.textContent = this.currentSong.type === "lofi" ? "LOFI MODE" : "SPEED UP MODE"
     heading.textContent = this.currentSong.name;
     cdThumb.style.backgroundImage = `url("./assets/img/cat-g.gif")`;
     audio.src = this.currentSong.path;
