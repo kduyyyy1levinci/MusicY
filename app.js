@@ -22,6 +22,8 @@ const dashboard = $(".dashboard");
 const theme = $("#theme");
 let index = 0;
 
+const changeBtn = $("#btn-change");
+
 const LOFI_SONGS = [
   {
     id: 1,
@@ -211,13 +213,17 @@ const SPEED_UP_SONGS = [
   },
 ]
 
+const randomNumber = Math.floor(Math.random() * 10);
+
+let SONGS_RENDER = randomNumber % 2 === 0 ? SPEED_UP_SONGS : LOFI_SONGS;
+
 const app = {
   currentIndex: 0,
   isPlaying: false,
   isRandom: false,
   isRepeat: false,
   isMenu: false,
-  songs: SPEED_UP_SONGS,
+  songs: SONGS_RENDER,
   render: function () {
     const htmls = this.songs.map((song, index) => {
       return `
@@ -246,7 +252,6 @@ const app = {
   },
   handleEvent: function () {
     const _this = this;
-
 
     const cdThumbAnimate = cdThumb.animate(
       [
@@ -311,6 +316,10 @@ const app = {
       _this.hightlightSong();
       _this.scrolltoActiveSong();
     };
+
+    changeBtn.onclick = function () {
+
+    }
 
     audio.onended = function () {
       if (_this.isRepeat) {
